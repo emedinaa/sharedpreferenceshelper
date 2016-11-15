@@ -1,5 +1,5 @@
 # sharedpreferenceshelper
-SharedPreferencesHelper manages a local shared preferences in App
+SharedPreferencesHelper manages a local shared preferences in Android App
 
 
 References :
