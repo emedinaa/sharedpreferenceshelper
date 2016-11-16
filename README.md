@@ -113,6 +113,46 @@ Luego la implementación
           return sharedPreferences.edit();
       }
   }
+```
+
+En el caso que necesitemos guardar una Entidad podemos usar GSON , con esta libreria podemos convertir el objeto a json String y luego para obtener, convertimos  de json String a Entidad.
+
+```
+package com.soluzione.mapsalud.data.helpers;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.soluzione.mapsalud.domain.entity.User;
+
+import org.json.JSONObject;
+import java.lang.reflect.Type;
+
+/**
+ * Created by eduardo on 12/11/16.
+ */
+public class GsonHelper {
+
+    public  JSONObject generateJSONObject(Object obj)
+    {
+        GsonBuilder gsonb = new GsonBuilder();
+        Gson gson = gsonb.create();
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = new JSONObject(gson.toJson(obj));//JsonObject(gson.toJson(obj));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return jsonObject;
+    }
+
+    public <T>T convertJsonToClass(String json,Class<T> cls){
+
+        GsonBuilder gsonb = new GsonBuilder();
+        Gson gson = gsonb.create();
+
+        return gson.fromJson(json, cls);
+    }
+}
 
 ```
 Ejemplos de como usar el Helper
