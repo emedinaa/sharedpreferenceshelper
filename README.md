@@ -115,6 +115,49 @@ Luego la implementación
   }
 
 ```
+Ejemplos de como usar el Helper
+
+- Guardar y obtener el Email
+```
+    private void preferencesEmail() {
+        SharedPreferences sharedPreferences= getSharedPreferences(MY_SHARED_PREFERENCES, Context.MODE_PRIVATE);
+        GsonHelper gsonHelper= new GsonHelper();
+
+        sharedPreferencesHelper= new DefaultSharedPreferencesHelper(gsonHelper,sharedPreferences);
+        sharedPreferencesHelper.saveEmail("emedinaa@gmail.com");
+        String email=sharedPreferencesHelper.email();
+
+        Log.v(TAG, "email "+email);
+    }
+```
+Output 
+```
+  V/MainActivity: email emedinaa@gmail.com
+```
+
+
+- Guardar y obtener una Entidad 
+```
+    private void preferencesGson() {
+        SharedPreferences sharedPreferences= getSharedPreferences(MY_SHARED_PREFERENCES, Context.MODE_PRIVATE);
+        GsonHelper gsonHelper= new GsonHelper();
+
+        sharedPreferencesHelper= new DefaultSharedPreferencesHelper(gsonHelper,sharedPreferences);
+        User user= new User();
+        user.setId(100);
+        user.setName("Eduardo Medina");
+        user.setEmail("emedinaa@gmail.com");
+
+        sharedPreferencesHelper.saveUser(user);
+        User userSp= sharedPreferencesHelper.user();
+
+        Log.v(TAG, "userSp "+userSp);
+    }
+```
+Output 
+```
+  V/MainActivity: userSp User{id=100, name='Eduardo Medina', email='emedinaa@gmail.com'}
+```
 
 ## Conclusión
 
