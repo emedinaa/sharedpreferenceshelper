@@ -1,11 +1,11 @@
 # SharedPreferencesHelper
 SharedPreferencesHelper maneja las preferencias locales compartidas en nuestra Aplicación Android.
 
-Shared Preferences(SP) es una de las opciones de persistencia de datos en Android que te permite almacenar  en tuplas, es decir ``` <Key, Value> ```, elementos  primitivos como String, Boolean,Double o  Integer. Por ejemplo para guardar el email o id de usuario al autenticarse , el puntaje obtenido o alguna opción seleccionada que necesitemos usar luego en nuestra App.
+Shared Preferences(SP) es una de las opciones de persistencia de datos en Android que te permite almacenar  en tuplas, es decir ``` <Key, Value> ```, elementos  primitivos como String, Boolean,Double o  Integer. Por ejemplo para guardar el email o id del usuario al autenticarse , el puntaje obtenido o alguna opción seleccionada que necesitemos usar luego en nuestra App.
 
 ## El problema
 
-He visto en algunas oportunidades que en el Activity o Fragment invocan el sharedpreferences , realizan operaciones como guardar , editar o eliminar algún valor . Este  código suelto, repetitivo , posiblemente difícil de encontrar cuando necesitemos hacer cambios, con el tiempos nos puede generar errores. Aparte sería una responsabilidad más que agregaríamos a la vista, lo cual no es correcto.
+He visto en algunas oportunidades que en el Activity o Fragment invocan el sharedpreferences , realizan operaciones como guardar , editar o eliminar algún valor . Este  código suelto, repetitivo , difícil de encontrar(aveces) , cuando necesitemos hacer cambios, con el tiempo nos puede generar errores. Además,  sería una responsabilidad adicional que agregaríamos a la vista, lo cual no es correcto.
 
 Un ejemplo : 
 ```
