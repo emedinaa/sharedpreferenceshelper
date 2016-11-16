@@ -115,7 +115,7 @@ Luego la implementación
   }
 ```
 
-En el caso que necesitemos guardar una Entidad podemos usar GSON , con esta libreria podemos convertir el objeto a json String y luego para obtener, convertimos  de json String a Entidad.
+En el caso que necesitemos guardar una Entidad podemos usar GSON , con esta libreria podemos convertir el objeto a json String y luego  de json String a Entidad.
 
 ```
 package com.soluzione.mapsalud.data.helpers;
