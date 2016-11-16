@@ -1,7 +1,7 @@
 # SharedPreferencesHelper
 SharedPreferencesHelper manages a local shared preferences in Android App
 
-Shared Preferences(SP) es una de las opciones de persistencia de datos en Android que te permite almacenar  en tuplas, es decir '<Key, Value>' , elementos  primitivos como String, Boolean,Double o  Integer. Por ejemplo para guardar el email o id de usuario al autenticarse , el puntaje obtenido o alguna opción seleccionada que necesitemos usar luego en nuestra App.
+Shared Preferences(SP) es una de las opciones de persistencia de datos en Android que te permite almacenar  en tuplas, es decir ``` <Key, Value> ```, elementos  primitivos como String, Boolean,Double o  Integer. Por ejemplo para guardar el email o id de usuario al autenticarse , el puntaje obtenido o alguna opción seleccionada que necesitemos usar luego en nuestra App.
 
 ## El problema
 
@@ -23,9 +23,9 @@ Seria genial tener un clase  con la responsabilidad de manejar las operaciones d
 
 ¿Qué responsabilidades tendría?
   - Limpiar el SP
-  - Agregar algún '<Key, Value>'
-  - Editar algún '<Key, Value>'
-  - Obtener algún '<Key, Value>'
+  - Agregar algún ``` <Key, Value> ```
+  - Editar algún ``` <Key, Value> ```
+  - Obtener algún ``` <Key, Value> ```
 
 
 References :
