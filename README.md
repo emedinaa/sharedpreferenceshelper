@@ -1,5 +1,5 @@
 # SharedPreferencesHelper
-SharedPreferencesHelper manages a local shared preferences in Android App
+SharedPreferencesHelper maneja las preferencias locales compartidas en nuestra Aplicación Android.
 
 Shared Preferences(SP) es una de las opciones de persistencia de datos en Android que te permite almacenar  en tuplas, es decir ``` <Key, Value> ```, elementos  primitivos como String, Boolean,Double o  Integer. Por ejemplo para guardar el email o id de usuario al autenticarse , el puntaje obtenido o alguna opción seleccionada que necesitemos usar luego en nuestra App.
 
