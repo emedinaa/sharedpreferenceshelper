@@ -27,6 +27,12 @@ Seria genial tener un clase  con la responsabilidad de manejar las operaciones d
   - Editar algún ``` <Key, Value> ```
   - Obtener algún ``` <Key, Value> ```
 
+Hagamos un Test Case :
+Para esto voy a usar mockito y probaremos guardar un String (email) y obtener el valor guardado.
+
+## Conclusiòn
+
+Siempre es sano usar helpers que nos ayuden en tareas rutinarias,con responsabilidades definidas , que podamos probar y manteniendo código ordenado y limpio. No recomiendo usar statics, ya saben… , es la soluciòn fácil y podrìa ocultar dependencias que no sirve para tener código testeable.
 
 References :
 
