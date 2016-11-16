@@ -27,8 +27,137 @@ Seria genial tener un clase  con la responsabilidad de manejar las operaciones d
   - Editar algún ``` <Key, Value> ```
   - Obtener algún ``` <Key, Value> ```
 
-Hagamos un Test Case :
-Para esto voy a usar mockito , donde  probaremos guardar un String (email) y obtener el valor guardado.
+Creamos un interfaz que defina el comportamiento del SP Helper
+```
+  package com.emedinaa.sharedpreferences.storage;
+
+  import com.emedinaa.sharedpreferences.entity.User;
+
+  /**
+   * Created by eduardomedina on 15/11/16.
+   */
+  public interface SharedPreferencesHelper {
+
+      void saveEmail (String email);
+      String email();
+
+      void saveUser(User user);
+      User user();
+
+      void clear();
+  }
+
+```
+
+Luego la implementación
+```
+  package com.emedinaa.sharedpreferences.storage;
+
+  import android.content.SharedPreferences;
+
+  import com.emedinaa.sharedpreferences.entity.User;
+  import com.emedinaa.sharedpreferences.utils.GsonHelper;
+
+  /**
+   * Created by eduardomedina on 15/11/16.
+   */
+  public class DefaultSharedPreferencesHelper implements SharedPreferencesHelper {
+
+      private  final String MY_SHARED_PREFERENCES = "com.emedinaa.sharedpreferences";
+      private  final String KEY_EMAIL = MY_SHARED_PREFERENCES+".session.email";
+      private  final String KEY_USER = MY_SHARED_PREFERENCES+".session.user";
+
+      private final SharedPreferences sharedPreferences;
+      private final GsonHelper gsonHelper;
+
+      public DefaultSharedPreferencesHelper(GsonHelper gsonHelper,SharedPreferences sharedPreferences) {
+          this.gsonHelper= gsonHelper;
+          this.sharedPreferences = sharedPreferences;
+      }
+
+      @Override
+      public void saveEmail(String email) {
+          SharedPreferences.Editor editor = editor();
+          editor.putString(KEY_EMAIL, email);
+          editor.apply();
+      }
+
+      @Override
+      public String email() {
+          String  email= sharedPreferences.getString(KEY_EMAIL,"");
+          return email;
+      }
+
+      @Override
+      public void saveUser(User user) {
+          SharedPreferences.Editor editor = editor();
+          editor.putString(KEY_USER, gsonHelper.objectToJSON(user).toString());
+          editor.apply();
+      }
+
+      @Override
+      public User user() {
+          String  userStr= sharedPreferences.getString(KEY_USER,"");
+          User user= gsonHelper.jsonToObject(userStr,User.class);
+          return user;
+      }
+
+      @Override
+      public void clear() {
+          SharedPreferences.Editor editor = editor();
+          editor.clear();
+          editor.apply();
+      }
+
+      private  SharedPreferences.Editor editor() {
+          return sharedPreferences.edit();
+      }
+  }
+
+```
+Ejemplos de como usar el Helper
+
+- Guardar y obtener el Email
+```
+    private void preferencesEmail() {
+        SharedPreferences sharedPreferences= getSharedPreferences(MY_SHARED_PREFERENCES, Context.MODE_PRIVATE);
+        GsonHelper gsonHelper= new GsonHelper();
+
+        sharedPreferencesHelper= new DefaultSharedPreferencesHelper(gsonHelper,sharedPreferences);
+        sharedPreferencesHelper.saveEmail("emedinaa@gmail.com");
+        String email=sharedPreferencesHelper.email();
+
+        Log.v(TAG, "email "+email);
+    }
+```
+Output 
+```
+  V/MainActivity: email emedinaa@gmail.com
+```
+
+
+- Guardar y obtener una Entidad 
+```
+    private void preferencesGson() {
+        SharedPreferences sharedPreferences= getSharedPreferences(MY_SHARED_PREFERENCES, Context.MODE_PRIVATE);
+        GsonHelper gsonHelper= new GsonHelper();
+
+        sharedPreferencesHelper= new DefaultSharedPreferencesHelper(gsonHelper,sharedPreferences);
+        User user= new User();
+        user.setId(100);
+        user.setName("Eduardo Medina");
+        user.setEmail("emedinaa@gmail.com");
+
+        sharedPreferencesHelper.saveUser(user);
+        User userSp= sharedPreferencesHelper.user();
+
+        Log.v(TAG, "userSp "+userSp);
+    }
+```
+Output 
+```
+  V/MainActivity: userSp User{id=100, name='Eduardo Medina', email='emedinaa@gmail.com'}
+```
 
 ## Conclusión
 
