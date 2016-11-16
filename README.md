@@ -5,7 +5,7 @@ Shared Preferences(SP) es una de las opciones de persistencia de datos en Androi
 
 ## El problema
 
-He visto en algunas oportunidades que en el Activity o Fragment invocan el sharedpreferences , realizan operaciones como guardar , editar o eliminar algún valor . Este  código suelto, repetitivo , difícil de encontrar,  cuando necesitemos hacer cambios, con el tiempo nos puede generar errores. Además,  sería una responsabilidad adicional que agregaríamos a la vista, lo cual no es correcto.
+He visto en algunas oportunidades que en el Activity o Fragment invocan el sharedpreferences , realizan operaciones como guardar , editar o eliminar algún valor . Este  código suelto, repetitivo , difícil de encontrar,  sobre todo cuando necesitamos hacer cambios, con el tiempo nos podrá generar errores. Además, sería una responsabilidad adicional que agregaríamos a la vista, lo cual no es correcto.
 
 Un ejemplo : 
 ```
@@ -32,7 +32,7 @@ Para esto voy a usar mockito , donde  probaremos guardar un String (email) y obt
 
 ## Conclusión
 
-Siempre es sano usar helpers que nos ayuden en tareas rutinarias,con responsabilidades definidas , que podamos probar y mantener código ordenado y limpio. No recomiendo usar statics, ya saben… , es la soluciòn fácil y podría ocultar dependencias que no ayuda con el testing.
+Siempre es sano usar helpers que nos ayuden en tareas rutinarias,con responsabilidades definidas , que podamos probar y mantener código ordenado y limpio. No recomiendo usar statics, ya saben… , es la soluciòn fácil y podría ocultar dependencias que no ayudan con el testing.
 
 References :
 
