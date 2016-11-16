@@ -161,6 +161,7 @@ Output
 
 ## Conclusión
 
+Este helper se encarga de manejar las preferencias compartidas y podemos invocarla en cualquier vista donde sea requerida. 
 Siempre es sano crear helpers que nos ayuden en tareas rutinarias,con responsabilidades definidas , que podamos probar y mantener el código ordenado y limpio. No recomiendo usar statics, ya saben… , es la solución fácil y podría ocultar dependencias que perjudican cuando hacemos testing.
 
 References :
