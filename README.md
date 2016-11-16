@@ -161,7 +161,7 @@ Output
 
 ## Conclusión
 
-Siempre es sano usar helpers que nos ayuden en tareas rutinarias,con responsabilidades definidas , que podamos probar y mantener código ordenado y limpio. No recomiendo usar statics, ya saben… , es la soluciòn fácil y podría ocultar dependencias que no ayudan con el testing.
+Siempre es sano usar helpers que nos ayuden en tareas rutinarias,con responsabilidades definidas , que podamos probar y mantener código ordenado y limpio. No recomiendo usar statics, ya saben… , es la solución fácil y podría ocultar dependencias que no ayudan con el testing.
 
 References :
 
